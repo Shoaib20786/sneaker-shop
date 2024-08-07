@@ -2,12 +2,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:provider/provider.dart';
 import 'package:sneaker_shop/core/firebase_options.dart';
 import 'package:sneaker_shop/data/datasources/firebase_api.dart';
 import 'package:sneaker_shop/models/cart.dart';
 import 'package:sneaker_shop/presentation/pages/intro_page.dart';
 import 'package:sneaker_shop/presentation/pages/notification_page.dart';
+import 'package:sneaker_shop/utils/consts.dart';
 
 final naviagtorKey = GlobalKey<NavigatorState>();
 void main() async  {
@@ -21,12 +23,17 @@ void main() async  {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await FirebaseApi().initNotifications();
+  await _setup();
   runApp(const MyApp());
+}
+Future<void> _setup()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey = stripePublishableKey;
 }
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
-
+ 
   @override
   State<MyApp> createState() => _MyAppState();
 

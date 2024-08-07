@@ -3,6 +3,7 @@ import "package:provider/provider.dart";
 import "package:sneaker_shop/models/cart.dart";
 import "package:sneaker_shop/models/shoe.dart";
 import "package:sneaker_shop/presentation/components/crat_item.dart";
+import "package:sneaker_shop/services/stripe_service.dart";
 
 class CartPage extends StatelessWidget{
   const CartPage({super.key});
@@ -46,11 +47,18 @@ class CartPage extends StatelessWidget{
                           style:const TextStyle(color:Colors.white,fontWeight:FontWeight.bold,fontSize: 18)),
                         ],
                       ),
-                      const Row(
-                        children: [
-                          Text("Pay Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
-                          Icon(Icons.arrow_forward_ios,size: 20,color: Colors.white,),
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                           final int totalAmount = int.parse(value.calculateTotalPrice());
+                          StripeService.instance.makePayment(totalAmount);
+                          
+                        },
+                        child: const Row(
+                          children: [
+                            Text("Pay Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                            Icon(Icons.arrow_forward_ios,size: 20,color: Colors.white,),
+                          ],
+                        ),
                       )
                     ],
                   )

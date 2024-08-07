@@ -129,11 +129,11 @@ class Cart extends ChangeNotifier{
 
   //calculate total price 
   String calculateTotalPrice(){
-    double totalPrice = 0;
+    int totalPrice = 0;
     for(int i=0; i<userCart.length; i++){
-      totalPrice += double.parse(userCart[i].price);
+      totalPrice += int.parse(userCart[i].price);
 
   }
-  return totalPrice.toStringAsFixed(2);
+  return totalPrice.toString();
   }
 }

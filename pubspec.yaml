@@ -43,6 +43,8 @@ dependencies:
   google_sign_in: ^6.2.1
   the_apple_sign_in: ^1.1.1
   firebase_messaging: ^15.0.3
+  flutter_stripe: ^11.0.0
+  dio: ^5.5.0+1
 
 dev_dependencies:
   flutter_test:

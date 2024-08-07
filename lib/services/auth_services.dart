@@ -20,7 +20,6 @@ class AuthService{
     // finally,lets signin
     return await FirebaseAuth.instance.signInWithCredential(credential);
 
-
   }
-
+ 
 }

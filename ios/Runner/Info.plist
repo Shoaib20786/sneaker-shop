@@ -4,7 +4,6 @@
 	<dict>
 	<key>CLIENT_ID</key>
 	<string>483072787583-6h5pdkoj04av1nec0usbjs6jph0v9nuc.apps.googleusercontent.com</string>
-	<!-- Google Sign-in Section -->
     <key>CFBundleURLTypes</key>
     <array>
 	    <dict>
@@ -12,13 +11,15 @@
 		 <string>Editor</string>
 		 <key>CFBundleURLSchemes</key>
 		    <array>
-			 <!-- TODO Replace this value: -->
-			 <!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
 			 <string>com.googleusercontent.apps.483072787583-6h5pdkoj04av1nec0usbjs6jph0v9nuc</string>
 		    </array>
 	    </dict>
-   </array>
-   <!-- End of the Google Sign-in Section -->
+    </array>
+	    <key>NSCameraUsageDescription</key>
+        <string>Scan your card to add it automatically</string>
+        <key>NSCameraUsageDescription
+        &lt;string&gt;To scan cards&lt;/string&gt;</key>
+        <string>To scan cards</string>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
